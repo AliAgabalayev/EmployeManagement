@@ -16,29 +16,29 @@ import java.util.List;
 public class EmployeeController {
       private final EmployeeService employeeService;
 
-     @PostMapping("/addEmployee")
+     @PostMapping()
      public ResponseEntity<Employee> addEmployee(@RequestBody EmployeeDto employeeDto){
         Employee employee=employeeService.addEmployee(employeeDto);
          return ResponseEntity.ok(employee);
      }
 
-     @GetMapping("/getAllEmployees")
+     @GetMapping()
      public List<Employee> getAllEmployees(){
          return employeeService.getAllEmployees();
      }
 
-     @GetMapping("/getEmployeeByEmail/email/{email}")
+     @GetMapping("/{email}")
      public Employee getEmployeeByEmail(@PathVariable String email){
          return employeeService.getEmployeeByEmail(email);
      }
 
-    @PutMapping("/editEmployee/id/{id}")
-    public ResponseEntity<Employee> editEmployee(@PathVariable Long id,@RequestBody EmployeeDto employeeDto){
-         Employee updatedEmployee=employeeService.editEmployee(id, employeeDto);
+    @PutMapping("/{employeeId}")
+    public ResponseEntity<Employee> editEmployee(@PathVariable Long employeeId,@RequestBody EmployeeDto employeeDto){
+         Employee updatedEmployee=employeeService.editEmployee(employeeId, employeeDto);
          return ResponseEntity.ok(updatedEmployee);
     }
 
-    @DeleteMapping("/delete/id/{id}")
-    public void deleteEmployee(@PathVariable Long id){employeeService.deleteEmployee(id);}
+    @DeleteMapping("/{employeeId}")
+    public void deleteEmployee(@PathVariable Long employeeId){employeeService.deleteEmployee(employeeId);}
 
 }

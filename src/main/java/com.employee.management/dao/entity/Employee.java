@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import com.employee.management.dao.entity.Department;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.time.LocalDateTime;
 
 @Data
@@ -43,6 +45,7 @@ public class Employee {
     @Column(name ="created_at")
     private LocalDateTime created_at;
 
+    @UpdateTimestamp
     @Column(name ="update_at")
     private LocalDateTime update_at;
 

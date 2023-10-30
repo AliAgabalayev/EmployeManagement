@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PositionController {
     private final PositionService positionService;
 
-    @PostMapping("/createPosition")
+    @PostMapping()
     public ResponseEntity<Position> createPosition(@RequestBody PositionDto positionDto){
         Position position=positionService.createPosition(positionDto);
         return ResponseEntity.ok(position);

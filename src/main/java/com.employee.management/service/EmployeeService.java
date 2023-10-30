@@ -9,6 +9,8 @@ public interface EmployeeService {
 
     Employee getEmployeeByEmail(String email);
 
+    Employee getEmployeeById(Long id);
+
     List<Employee> getAllEmployees();
 
     Employee editEmployee(Long id, EmployeeDto employeeDto);
