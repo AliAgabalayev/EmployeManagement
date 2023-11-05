@@ -1,19 +1,26 @@
 package com.employee.management.mapper;
 
 import com.employee.management.dao.entity.Employee;
-import com.employee.management.dto.EmployeeDto;
+import com.employee.management.model.EmployeeDto;
+import com.employee.management.model.EmployeeRequest;
+import com.employee.management.model.EmployeeResponse;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValueCheckStrategy;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import java.util.List;
 
-@Mapper(nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+@Mapper
+public abstract class EmployeeMapper {
+    public static final EmployeeMapper INSTANCE = Mappers.getMapper(EmployeeMapper.class);
 
-public abstract class EmployeeMapper{
+    @Mapping(target = "id", ignore = true)
+    public abstract Employee requestToEntity(EmployeeRequest request);
 
-    public static final EmployeeMapper INSTANCE= Mappers.getMapper(EmployeeMapper.class);
+    public abstract EmployeeDto entityToDto(Employee employee);
 
-    public abstract Employee dtoToEntity(EmployeeDto employeeDto);
+    public abstract List<EmployeeDto> entitiesToDtos(List<Employee> employees);
+
+    public abstract EmployeeResponse dtoToResponse(EmployeeDto dto);
+
+    public abstract List<EmployeeResponse> dtoToResponseList(List<EmployeeDto> dtos);
 }

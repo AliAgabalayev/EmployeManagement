@@ -1,4 +1,4 @@
-package com.employee.management.dto;
+package com.employee.management.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class DepartmentDto {
+public class DepartmentResponse {
+    private Long id;
+
     private String name;
 }

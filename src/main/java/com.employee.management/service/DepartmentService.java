@@ -1,20 +1,20 @@
 package com.employee.management.service;
 
-import com.employee.management.dao.entity.Department;
-import com.employee.management.dto.DepartmentDto;
+import com.employee.management.model.DepartmentRequest;
+import com.employee.management.model.DepartmentResponse;
 
 import java.util.List;
 
 public interface DepartmentService {
-    public Department createDepartment(DepartmentDto departmentDto);
+    DepartmentResponse createDepartment(DepartmentRequest departmentRequest);
 
-    public DepartmentDto getDepartmentById(Long id);
+    DepartmentResponse getDepartmentById(Long id);
 
-    public DepartmentDto getDepartmetByName(String name);
+    DepartmentResponse getDepartmentByName(String name);
 
-    public List<DepartmentDto> getAllDepartments();
+    List<DepartmentResponse> getAllDepartments();
 
-    public Department editDepartament (Long id,DepartmentDto departmentDto);
+    DepartmentResponse editDepartment(Long id, DepartmentRequest departmentRequest);
 
-    public void deleteDepartment(Long id);
+    void deleteDepartment(Long id);
 }

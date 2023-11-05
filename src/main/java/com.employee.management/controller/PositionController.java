@@ -1,7 +1,8 @@
 package com.employee.management.controller;
 
 import com.employee.management.dao.entity.Position;
-import com.employee.management.dto.PositionDto;
+import com.employee.management.model.PositionRequest;
+import com.employee.management.model.PositionResponse;
 import com.employee.management.service.PositionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class PositionController {
     private final PositionService positionService;
 
     @PostMapping()
-    public ResponseEntity<Position> createPosition(@RequestBody PositionDto positionDto){
-        Position position=positionService.createPosition(positionDto);
-        return ResponseEntity.ok(position);
+    public ResponseEntity<PositionResponse> createPosition(@RequestBody PositionRequest positionRequest){
+        PositionResponse positionResponse=positionService.createPosition(positionRequest);
+        return ResponseEntity.ok(positionResponse);
     }
 }

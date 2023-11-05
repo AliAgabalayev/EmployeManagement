@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -34,7 +35,7 @@ public class Department {
     private LocalDateTime update_at;
 
     @OneToMany(mappedBy = "department")
-    private List<Position> positions;
+    private Set<Position> positions;
 
     @OneToMany(mappedBy ="department")
     private List<Employee> employees;

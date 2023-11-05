@@ -1,4 +1,4 @@
-package com.employee.management.dto;
+package com.employee.management.model;
 
 import com.employee.management.dao.entity.Department;
 import com.employee.management.dao.entity.Position;
@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmployeeDto {
-
+public class EmployeeResponse {
+    private int id;;
     private String name;
     private String surname;
     private String email;
     private boolean status;
-    private Department department;
-    private Position position;
+    private String departmentName;
+    private String positionName;
 
 }

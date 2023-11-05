@@ -1,6 +1,6 @@
-package com.employee.management.dto;
+package com.employee.management.model;
 
-import com.employee.management.dao.entity.Department;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,5 +13,5 @@ public class PositionDto {
 
     private double salary;
 
-    private Department department;
+    private DepartmentDto department;
 }

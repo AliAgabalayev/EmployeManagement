@@ -1,7 +1,8 @@
 package com.employee.management.controller;
 
-import com.employee.management.dao.entity.Employee;
-import com.employee.management.dto.EmployeeDto;
+import com.employee.management.model.EmployeeDto;
+import com.employee.management.model.EmployeeRequest;
+import com.employee.management.model.EmployeeResponse;
 import com.employee.management.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -9,36 +10,37 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("${root.url}/employees")
 public class EmployeeController {
-      private final EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
-     @PostMapping()
-     public ResponseEntity<Employee> addEmployee(@RequestBody EmployeeDto employeeDto){
-        Employee employee=employeeService.addEmployee(employeeDto);
-         return ResponseEntity.ok(employee);
-     }
+    @PostMapping()
+    public ResponseEntity<EmployeeResponse> addEmployee(@RequestBody EmployeeRequest employeeRequest) {
+        EmployeeResponse employee = employeeService.createEmployee(employeeRequest);
+        return ResponseEntity.ok(employee);
+    }
 
-     @GetMapping()
-     public List<Employee> getAllEmployees(){
-         return employeeService.getAllEmployees();
-     }
+    @GetMapping()
+    public List<EmployeeResponse> getAllEmployees() {
+        List<EmployeeResponse> employees = employeeService.getAllEmployees();
+        return employees;
+    }
 
-     @GetMapping("/{email}")
-     public Employee getEmployeeByEmail(@PathVariable String email){
-         return employeeService.getEmployeeByEmail(email);
-     }
+    @GetMapping("/{employeeId}")
+    public EmployeeResponse getEmployeeById(@PathVariable Long employeeId) {
+        return employeeService.getEmployeeById(employeeId);
+    }
 
     @PutMapping("/{employeeId}")
-    public ResponseEntity<Employee> editEmployee(@PathVariable Long employeeId,@RequestBody EmployeeDto employeeDto){
-         Employee updatedEmployee=employeeService.editEmployee(employeeId, employeeDto);
-         return ResponseEntity.ok(updatedEmployee);
+    public ResponseEntity<EmployeeResponse> editEmployee(@PathVariable Long employeeId, @RequestBody EmployeeRequest employeeRequest) {
+        EmployeeResponse updatedEmployee = employeeService.editEmployee(employeeId, employeeRequest);
+        return ResponseEntity.ok(updatedEmployee);
     }
 
     @DeleteMapping("/{employeeId}")
-    public void deleteEmployee(@PathVariable Long employeeId){employeeService.deleteEmployee(employeeId);}
-
+    public void deleteEmployee(@PathVariable Long employeeId) {
+        employeeService.deleteEmployee(employeeId);
+    }
 }

@@ -1,7 +1,8 @@
 package com.employee.management.controller;
 
-import com.employee.management.dao.entity.Department;
-import com.employee.management.dto.DepartmentDto;
+import com.employee.management.model.DepartmentDto;
+import com.employee.management.model.DepartmentRequest;
+import com.employee.management.model.DepartmentResponse;
 import com.employee.management.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,36 +17,37 @@ public class DepartmentController {
     private final DepartmentService departmentService;
 
     @PostMapping()
-    public ResponseEntity<Department> createDepartment(@RequestBody DepartmentDto departmentDto){
-        Department department=departmentService.createDepartment(departmentDto);
+    public ResponseEntity<DepartmentResponse> createDepartment(@RequestBody DepartmentRequest departmentRequest) {
+        DepartmentResponse department = departmentService.createDepartment(departmentRequest);
         return ResponseEntity.ok(department);
     }
+
     @GetMapping("/{departmentId}")
-    public ResponseEntity<DepartmentDto> getDepartmentById(@PathVariable Long departmentId){
-        DepartmentDto departmentDto=departmentService.getDepartmentById(departmentId);
-        return ResponseEntity.ok(departmentDto);
+    public ResponseEntity<DepartmentResponse> getDepartmentById(@PathVariable Long departmentId) {
+        DepartmentResponse department = departmentService.getDepartmentById(departmentId);
+        return ResponseEntity.ok(department);
     }
 
-    @GetMapping("/{departmentName}")
-    public  ResponseEntity<DepartmentDto> getDepartmentByName(@PathVariable String departmentName){
-        DepartmentDto departmentDto=departmentService.getDepartmetByName(departmentName);
-        return ResponseEntity.ok(departmentDto);
+    @GetMapping("/byName/{departmentName}")
+    public ResponseEntity<DepartmentResponse> getDepartmentByName(@PathVariable String departmentName) {
+        DepartmentResponse department = departmentService.getDepartmentByName(departmentName);
+        return ResponseEntity.ok(department);
     }
 
     @GetMapping()
-    public ResponseEntity<List<DepartmentDto>> getAllDepartments(){
-        List<DepartmentDto> departmentDtoList=departmentService.getAllDepartments();
-        return ResponseEntity.ok(departmentDtoList);
+    public ResponseEntity<List<DepartmentResponse>> getAllDepartments() {
+        List<DepartmentResponse> departments = departmentService.getAllDepartments();
+        return ResponseEntity.ok(departments);
     }
 
     @PutMapping("/{departmentId}")
-    public ResponseEntity<Department> editDepartment(@PathVariable Long departmentId,@RequestBody DepartmentDto departmentDto){
-        Department updatedDepartment=departmentService.editDepartament(departmentId,departmentDto);
+    public ResponseEntity<DepartmentResponse> editDepartment(@PathVariable Long departmentId, @RequestBody DepartmentRequest departmentRequest) {
+        DepartmentResponse updatedDepartment = departmentService.editDepartment(departmentId, departmentRequest);
         return ResponseEntity.ok(updatedDepartment);
     }
 
     @DeleteMapping("/{departmentId}")
-    public void deleteDepartment(@PathVariable Long departmentId){
+    public void deleteDepartment(@PathVariable Long departmentId) {
         departmentService.deleteDepartment(departmentId);
     }
 }

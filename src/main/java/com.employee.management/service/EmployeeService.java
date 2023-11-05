@@ -1,19 +1,18 @@
 package com.employee.management.service;
-import com.employee.management.dao.entity.Employee;
-import com.employee.management.dto.EmployeeDto;
 
+import com.employee.management.model.EmployeeDto;
+import com.employee.management.model.EmployeeRequest;
+import com.employee.management.model.EmployeeResponse;
 import java.util.List;
 
 public interface EmployeeService {
-    Employee addEmployee(EmployeeDto employeeDto);
+    EmployeeResponse createEmployee(EmployeeRequest request);
 
-    Employee getEmployeeByEmail(String email);
+    EmployeeResponse getEmployeeById(Long id);
 
-    Employee getEmployeeById(Long id);
+    List<EmployeeResponse> getAllEmployees();
 
-    List<Employee> getAllEmployees();
-
-    Employee editEmployee(Long id, EmployeeDto employeeDto);
+    EmployeeResponse editEmployee(Long id, EmployeeRequest request);
 
     void deleteEmployee(Long id);
 }

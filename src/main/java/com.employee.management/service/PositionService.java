@@ -1,20 +1,19 @@
 package com.employee.management.service;
 
-import com.employee.management.dao.entity.Position;
-import com.employee.management.dto.PositionDto;
+import com.employee.management.model.PositionDto;
+import com.employee.management.model.PositionRequest;
+import com.employee.management.model.PositionResponse;
 
 import java.util.List;
 
 public interface PositionService {
-    public Position createPosition(PositionDto positionDto);
+    PositionResponse createPosition(PositionRequest request);
 
-    public Position getPositionById(Long Id);
+    PositionResponse getPositionById(Long id);
 
-    public List<Position> getAllPosition();
+    List<PositionResponse> getAllPositions();
 
-    public Position editPosition(Long id,PositionDto positionDto);
+    PositionResponse editPosition(Long id, PositionRequest request);
 
-    public  void deletePosition(Long id);
-
-
+    void deletePosition(Long id);
 }
