@@ -1,6 +1,5 @@
 package com.employee.management.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PositionDto {
-    private String name;
+public class LoginRequest {
 
-    private double salary;
+    private String email;
+    private String password;
 
-    private DepartmentDto department;
 }

@@ -4,13 +4,14 @@ import com.employee.management.dao.entity.Department;
 import com.employee.management.model.DepartmentDto;
 import com.employee.management.model.DepartmentRequest;
 import com.employee.management.model.DepartmentResponse;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper
+@Mapper(nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public abstract class DepartmentMapper {
     public static final DepartmentMapper INSTANCE = Mappers.getMapper(DepartmentMapper.class);
 

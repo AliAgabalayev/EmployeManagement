@@ -4,12 +4,13 @@ import com.employee.management.dao.entity.Employee;
 import com.employee.management.model.EmployeeDto;
 import com.employee.management.model.EmployeeRequest;
 import com.employee.management.model.EmployeeResponse;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 import java.util.List;
 
-@Mapper
+@Mapper(nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public abstract class EmployeeMapper {
     public static final EmployeeMapper INSTANCE = Mappers.getMapper(EmployeeMapper.class);
 

@@ -1,6 +1,5 @@
 package com.employee.management.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PositionDto {
-    private String name;
+public class RoleDto {
+    private Long id;
 
-    private double salary;
-
-    private DepartmentDto department;
+    private String role;
 }
