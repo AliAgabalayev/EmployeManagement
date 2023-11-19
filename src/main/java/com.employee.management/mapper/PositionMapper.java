@@ -9,19 +9,29 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
+@Mapper(
+        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
+)
 public abstract class PositionMapper {
     public static final PositionMapper INSTANCE = Mappers.getMapper(PositionMapper.class);
 
-    @Mapping(target = "lesson.id", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "employees", ignore = true)
+    @Mapping(source = "request.departmentId", target = "department.id")
     public abstract Position requestToEntity(PositionRequest request);
 
     public abstract PositionDto entityToDto(Position position);
 
     public abstract List<PositionDto> entityListToDtoList(List<Position> positions);
 
+    @Mapping(source = "dto.id", target = "id")
+    @Mapping(source = "dto.name", target = "name")
+    @Mapping(source = "dto.salary", target = "salary")
+    @Mapping(source = "dto.department.name", target = "departmentName")
     public abstract PositionResponse dtoToResponse(PositionDto dto);
 
     public abstract List<PositionResponse> dtoToResponseList(List<PositionDto> dtos);

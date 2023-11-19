@@ -32,7 +32,7 @@ public class Position {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
+    @ManyToOne(cascade =CascadeType.ALL)
     @JoinColumn(name = "department_id")
     private Department department;
 

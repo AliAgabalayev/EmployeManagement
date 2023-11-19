@@ -1,16 +1,11 @@
 package com.employee.management.controller;
 
-import com.employee.management.model.DepartmentRequest;
-import com.employee.management.model.DepartmentResponse;
-import com.employee.management.model.UserRequest;
-import com.employee.management.model.UserResponse;
+import com.employee.management.model.*;
 import com.employee.management.service.UserService;
+import com.employee.management.service.jwt.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,9 +14,18 @@ public class AuthController {
 
     private final UserService userService;
 
+    private final JwtService jwtService;
+
     @PostMapping("/register")
     public ResponseEntity<UserResponse> saveUser(@RequestBody UserRequest userRequest) {
-        UserResponse userResponse = userService.saveuser(userRequest);
+        UserResponse userResponse = userService.saveUser(userRequest);
         return ResponseEntity.ok(userResponse);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> loginUser(@RequestBody LoginRequest loginRequest) {
+        AuthenticationResponse authenticationResponse= userService.loginUser(loginRequest);
+        return ResponseEntity.ok(authenticationResponse);
+    }
+
 }
