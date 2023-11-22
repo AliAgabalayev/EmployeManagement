@@ -28,7 +28,7 @@ public class SecurityConfig {
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
 
         httpSecurity.authorizeHttpRequests(request ->
-                request.requestMatchers("/api/v1/employee-management/auth/**")
+                request.requestMatchers("/api/v1/employee-management/auth/**","/api/v1/employee-management/auth-g/**")
                         .permitAll()
                         .requestMatchers(HttpMethod.DELETE,"/api/v1/employee-management/departments",
                                 "/api/v1/employee-management/positions",

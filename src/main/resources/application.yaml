@@ -14,7 +14,7 @@ spring:
     password: 12345
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
     properties:
       hibernate:
@@ -26,3 +26,15 @@ root:
     url: /api/v1/employee-management
 secret:
   key: 41c3553fd2022632c55eaad0c69ae3b07883cb3f104d81c32531c97210c2becd
+mail:
+  host: smtp.gmail.com
+  port: 587
+  username: todolistorganization@gmail.com
+  password: rgankytzymfbyphy
+  protocol: smtp
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
