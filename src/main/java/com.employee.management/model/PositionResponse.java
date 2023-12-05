@@ -11,10 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PositionResponse {
     private Long id;
-
     private String name;
-
     private double salary;
-
     private String departmentName;
 }

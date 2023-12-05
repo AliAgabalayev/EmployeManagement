@@ -12,10 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PositionDto {
     private Long id;
-
     private String name;
-
     private double salary;
-
     private DepartmentDto department;
 }

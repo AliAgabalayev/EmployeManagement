@@ -15,15 +15,15 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Department")
+@Table(name = "Department")
 public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name ="name")
+    @Column(name = "name")
     private String name;
 
     @CreationTimestamp
@@ -31,13 +31,12 @@ public class Department {
     private LocalDateTime created_at;
 
     @UpdateTimestamp
-    @Column(name ="update_at")
+    @Column(name = "update_at")
     private LocalDateTime update_at;
 
     @OneToMany(mappedBy = "department")
     private Set<Position> positions;
 
-    @OneToMany(mappedBy ="department")
-    private List<Employee> employees;
+
 }
 

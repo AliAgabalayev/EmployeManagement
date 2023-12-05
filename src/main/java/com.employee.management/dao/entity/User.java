@@ -45,7 +45,8 @@ public class User implements UserDetails {
     @Column(name= "status")
     private boolean status;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE,
+        fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id")

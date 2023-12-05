@@ -14,15 +14,10 @@ import java.util.Set;
 @NoArgsConstructor
 public class UserRequest {
     private String name;
-
     private String surname;
-
     private String email;
-
     private String username;
-
     private String password;
-
     private Set<RoleDto> role;
 
 

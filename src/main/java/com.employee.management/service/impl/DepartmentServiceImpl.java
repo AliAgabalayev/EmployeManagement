@@ -52,21 +52,19 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public DepartmentResponse getDepartmentById(Long id) {
-        Department department = departmentRepository.findById(id)
-                .orElseThrow(() -> {
-                    logger.error("Department with ID: {} not found", id);
-                    return new DepartmentNotFoundException(id);
-                });
+        Department department = departmentRepository.findById(id).orElseThrow(() -> {
+            logger.error("Department with ID: {} not found", id);
+            return new DepartmentNotFoundException(id);
+        });
         return DepartmentMapper.INSTANCE.entityToResponse(department);
     }
 
     @Override
     public DepartmentResponse getDepartmentByName(String name) {
-        Department department = departmentRepository.findByName(name)
-                .orElseThrow(() -> {
-                    logger.error("Department with name: {} not found", name);
-                    return new DepartmentNotFoundException(name);
-                });
+        Department department = departmentRepository.findByName(name).orElseThrow(() -> {
+            logger.error("Department with name: {} not found", name);
+            return new DepartmentNotFoundException(name);
+        });
         return DepartmentMapper.INSTANCE.entityToResponse(department);
     }
 
@@ -78,11 +76,10 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public DepartmentResponse editDepartment(Long id, DepartmentRequest departmentRequest) {
-        Department existingDepartment = departmentRepository.findById(id)
-                .orElseThrow(() -> {
-                    logger.error("Department with ID: {} not found", id);
-                    return new DepartmentNotFoundException(id);
-                });
+        Department existingDepartment = departmentRepository.findById(id).orElseThrow(() -> {
+            logger.error("Department with ID: {} not found", id);
+            return new DepartmentNotFoundException(id);
+        });
 
         existingDepartment.setName(departmentRequest.getName());
         Department updatedDepartment = departmentRepository.save(existingDepartment);
@@ -92,11 +89,10 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public void deleteDepartment(Long id) {
-        Department department = departmentRepository.findById(id)
-                .orElseThrow(() -> {
-                    logger.error("Department with ID: {} not found", id);
-                    throw new DepartmentNotFoundException(id);
-                });
+        Department department = departmentRepository.findById(id).orElseThrow(() -> {
+            logger.error("Department with ID: {} not found", id);
+            throw new DepartmentNotFoundException(id);
+        });
 
         departmentRepository.delete(department);
         logger.info("Deleted department with ID: {}", id);

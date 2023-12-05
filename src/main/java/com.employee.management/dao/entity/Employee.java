@@ -14,14 +14,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Employee")
+@Table(name = "Employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name ="name")
+    @Column(name = "name")
     private String name;
 
     @Column(name = "surname")
@@ -31,22 +31,18 @@ public class Employee {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department department;
-
-    @ManyToOne
     @JoinColumn(name = "position_id")
     private Position position;
 
-    @Column(name ="status")
+    @Column(name = "status")
     private boolean status;
 
     @CreationTimestamp
-    @Column(name ="created_at")
+    @Column(name = "created_at")
     private LocalDateTime created_at;
 
     @UpdateTimestamp
-    @Column(name ="update_at")
+    @Column(name = "update_at")
     private LocalDateTime update_at;
 
 }

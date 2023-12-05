@@ -49,10 +49,10 @@ public class UserServiceImpl implements UserService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
                 loginRequest.getPassword()));
 
-        User user=userRepository.findByUsername(loginRequest.getUsername())
+        User user = userRepository.findByUsername(loginRequest.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found for username " + loginRequest.getUsername()));
 
-        String token= jwtService.generateToken(user);
+        String token = jwtService.generateToken(user);
 
         logger.info("ActionLog.login.end loginrequest: {}", loginRequest);
         return AuthenticationResponse.builder()

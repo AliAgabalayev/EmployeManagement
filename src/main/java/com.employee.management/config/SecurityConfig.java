@@ -19,26 +19,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-     private final AuthenticationProvider authenticationProvider;
+    private final AuthenticationProvider authenticationProvider;
 
-     private final JwtFilter jwtFilter;
+    private final JwtFilter jwtFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
 
         httpSecurity.authorizeHttpRequests(request ->
-                request.requestMatchers("/api/v1/employee-management/auth/**","/api/v1/employee-management/auth-g/**")
-                        .permitAll()
-                        .requestMatchers(HttpMethod.DELETE,"/api/v1/employee-management/departments",
-                                "/api/v1/employee-management/positions",
-                                "/api/v1/employee-management/employees")
-                        .hasAuthority("ADMIN")
-                        .anyRequest()
-                        .authenticated())
+                        request.requestMatchers("/api/v1/employee-management/auth/**")
+                                .permitAll()
+                                .requestMatchers(HttpMethod.DELETE, "/api/v1/employee-management/departments",
+                                        "/api/v1/employee-management/positions",
+                                        "/api/v1/employee-management/employees")
+                                .hasAuthority("ADMIN")
+                                .anyRequest()
+                                .authenticated())
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
 
 
         return httpSecurity.build();

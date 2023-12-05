@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PositionRequest
-{
+public class PositionRequest {
     private String name;
 
     private double salary;
