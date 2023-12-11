@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 public class DepartmentDto {
+    private Long id;
     private String name;
 }

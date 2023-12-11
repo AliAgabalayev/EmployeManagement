@@ -33,8 +33,13 @@ public class DepartmentServiceImpl implements DepartmentService {
         }
 
         Department createdDepartment = DepartmentMapper.INSTANCE.requestToEntity(departmentRequest);
+
         try {
             createdDepartment = departmentRepository.save(createdDepartment);
+            if (createdDepartment == null) {
+                logger.error("Department not saved. Save operation returned null.");
+                throw new IllegalStateException("Department not saved");
+            }
             logger.info("Created new department with ID: {}", createdDepartment.getId());
         } catch (DataIntegrityViolationException e) {
             logger.error("Error while creating department: {}", e.getMessage());

@@ -18,6 +18,7 @@ public abstract class DepartmentMapper {
     @Mapping(target = "id", ignore = true)
     public abstract Department requestToEntity(DepartmentRequest request);
 
+    @Mapping(target = "id", expression = "java(department.getId() != null ? department.getId() : 0)")
     public abstract DepartmentResponse entityToResponse(Department department);
     public abstract List<DepartmentResponse> entityListToResponseList(List<Department> departments);
 }

@@ -11,7 +11,7 @@ import com.employee.management.model.LoginRequest;
 import com.employee.management.model.UserRequest;
 import com.employee.management.model.UserResponse;
 import com.employee.management.service.UserService;
-import com.employee.management.service.jwt.JwtService;
+import com.employee.management.security.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

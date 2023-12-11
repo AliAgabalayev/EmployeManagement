@@ -36,6 +36,6 @@ public class Position {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @OneToMany(mappedBy ="position")
+    @OneToMany(mappedBy ="position",cascade = CascadeType.ALL)
     private List<Employee> employees;
 }

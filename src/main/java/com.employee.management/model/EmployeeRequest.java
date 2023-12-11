@@ -17,6 +17,6 @@ public class EmployeeRequest {
     private String surname;
     private String email;
     private boolean status;
-    private Long positionID;
+    private Long positionId;
 
 }

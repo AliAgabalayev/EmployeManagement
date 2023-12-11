@@ -13,5 +13,5 @@ public class PositionResponse {
     private Long id;
     private String name;
     private double salary;
-    private String departmentName;
+    private Long departmentId;
 }

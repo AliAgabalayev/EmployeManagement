@@ -1,8 +1,9 @@
 package com.employee.management.controller;
 
 import com.employee.management.model.*;
+import com.employee.management.security.JwtService;
 import com.employee.management.service.UserService;
-import com.employee.management.service.jwt.JwtService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

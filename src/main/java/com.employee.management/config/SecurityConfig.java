@@ -33,7 +33,7 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.DELETE, "/api/v1/employee-management/departments",
                                         "/api/v1/employee-management/positions",
                                         "/api/v1/employee-management/employees")
-                                .hasAuthority("ADMIN")
+                                .hasRole("ADMIN")
                                 .anyRequest()
                                 .authenticated())
                 .authenticationProvider(authenticationProvider)
@@ -42,5 +42,7 @@ public class SecurityConfig {
 
         return httpSecurity.build();
     }
+
+
 
 }

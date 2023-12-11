@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeResponse {
-    private int id;
+    private Long id;
     private String name;
     private String surname;
     private String email;
     private boolean status;
-    private Long positionID;
+    private Long positionId;
 
 }

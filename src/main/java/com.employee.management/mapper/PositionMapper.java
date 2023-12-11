@@ -23,7 +23,7 @@ public abstract class PositionMapper {
     @Mapping(target = "employees", ignore = true)
     @Mapping(source = "request.departmentId", target = "department.id")
     public abstract Position requestToEntity(PositionRequest request);
-
+    @Mapping(target = "id", expression = "java(position.getId() != null ? position.getId() : 0)")
     public abstract PositionDto entityToDto(Position position);
 
     public abstract List<PositionDto> entityListToDtoList(List<Position> positions);
@@ -31,7 +31,7 @@ public abstract class PositionMapper {
     @Mapping(source = "dto.id", target = "id")
     @Mapping(source = "dto.name", target = "name")
     @Mapping(source = "dto.salary", target = "salary")
-    @Mapping(source = "dto.department.name", target = "departmentName")
+    @Mapping(source = "dto.department.id", target = "departmentId")
     public abstract PositionResponse dtoToResponse(PositionDto dto);
 
     public abstract List<PositionResponse> dtoToResponseList(List<PositionDto> dtos);
