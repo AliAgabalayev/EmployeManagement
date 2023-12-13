@@ -1,9 +1,9 @@
 package com.employee.management.mapper;
 
 import com.employee.management.dao.entity.Employee;
-import com.employee.management.model.EmployeeDto;
-import com.employee.management.model.EmployeeRequest;
-import com.employee.management.model.EmployeeResponse;
+import com.employee.management.model.dto.EmployeeDto;
+import com.employee.management.model.request.EmployeeRequest;
+import com.employee.management.model.response.EmployeeResponse;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 

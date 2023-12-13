@@ -1,8 +1,7 @@
 package com.employee.management.controller;
 
-import com.employee.management.model.DepartmentDto;
-import com.employee.management.model.DepartmentRequest;
-import com.employee.management.model.DepartmentResponse;
+import com.employee.management.model.request.DepartmentRequest;
+import com.employee.management.model.response.DepartmentResponse;
 import com.employee.management.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

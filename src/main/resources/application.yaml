@@ -24,6 +24,11 @@ spring:
 
 root:
     url: /api/v1/employee-management
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs.path: /api-docs
 secret:
   key: 41c3553fd2022632c55eaad0c69ae3b07883cb3f104d81c32531c97210c2becd
 mail:

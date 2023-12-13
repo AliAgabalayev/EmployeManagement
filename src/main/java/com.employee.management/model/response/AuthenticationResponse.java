@@ -1,4 +1,4 @@
-package com.employee.management.model;
+package com.employee.management.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

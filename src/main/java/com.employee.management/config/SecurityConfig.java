@@ -2,7 +2,7 @@
 package com.employee.management.config;
 
 
-import com.employee.management.filter.JwtFilter;
+import com.employee.management.security.filter.JwtFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,9 +30,9 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(request ->
                         request.requestMatchers("/api/v1/employee-management/auth/**")
                                 .permitAll()
-                                .requestMatchers(HttpMethod.DELETE, "/api/v1/employee-management/departments",
-                                        "/api/v1/employee-management/positions",
-                                        "/api/v1/employee-management/employees")
+                                .requestMatchers(HttpMethod.DELETE, "/api/v1/employee-management/departments/",
+                                        "/api/v1/employee-management/positions/",
+                                        "/api/v1/employee-management/employees/")
                                 .hasRole("ADMIN")
                                 .anyRequest()
                                 .authenticated())

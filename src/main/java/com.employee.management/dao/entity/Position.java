@@ -32,10 +32,16 @@ public class Position {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne(cascade =CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @OneToMany(mappedBy ="position",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "position", cascade = CascadeType.ALL)
     private List<Employee> employees;
+    @PreRemove
+    private void preRemove() {
+        for (Employee employee : employees) {
+            employee.setPosition(null);
+        }
+    }
 }

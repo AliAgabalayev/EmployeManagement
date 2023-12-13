@@ -1,4 +1,4 @@
-package com.employee.management.model;
+package com.employee.management.model.response;
 
 import com.employee.management.dao.entity.Department;
 import com.employee.management.dao.entity.Position;

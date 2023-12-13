@@ -1,4 +1,4 @@
-package com.employee.management.model;
+package com.employee.management.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleDto {
-    private Long id;
-    private String role;
+public class PositionRequest {
+    private String name;
+
+    private double salary;
+
+    private Long departmentId;
 }

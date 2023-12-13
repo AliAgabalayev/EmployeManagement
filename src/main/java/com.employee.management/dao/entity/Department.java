@@ -37,6 +37,11 @@ public class Department {
     @OneToMany(mappedBy = "department")
     private Set<Position> positions;
 
-
+    @PreRemove
+    private void preRemove() {
+        for (Position position : positions) {
+            position.setDepartment(null);
+        }
+    }
 }
 

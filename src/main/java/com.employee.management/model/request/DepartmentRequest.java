@@ -1,4 +1,4 @@
-package com.employee.management.model;
+package com.employee.management.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-public class DepartmentResponse {
-    private Long id;
-
+public class DepartmentRequest {
     private String name;
 }

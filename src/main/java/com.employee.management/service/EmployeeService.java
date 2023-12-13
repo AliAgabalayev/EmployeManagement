@@ -1,8 +1,7 @@
 package com.employee.management.service;
 
-import com.employee.management.model.EmployeeDto;
-import com.employee.management.model.EmployeeRequest;
-import com.employee.management.model.EmployeeResponse;
+import com.employee.management.model.request.EmployeeRequest;
+import com.employee.management.model.response.EmployeeResponse;
 import java.util.List;
 
 public interface EmployeeService {

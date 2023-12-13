@@ -1,6 +1,7 @@
-package com.employee.management.model;
+package com.employee.management.model.dto;
 
 
+import com.employee.management.model.dto.DepartmentDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

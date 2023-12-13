@@ -1,7 +1,7 @@
 package com.employee.management.controller;
 
-import com.employee.management.model.PositionRequest;
-import com.employee.management.model.PositionResponse;
+import com.employee.management.model.request.PositionRequest;
+import com.employee.management.model.response.PositionResponse;
 import com.employee.management.service.PositionService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

@@ -1,7 +1,7 @@
 package com.employee.management.service;
 
-import com.employee.management.model.DepartmentRequest;
-import com.employee.management.model.DepartmentResponse;
+import com.employee.management.model.request.DepartmentRequest;
+import com.employee.management.model.response.DepartmentResponse;
 
 import java.util.List;
 

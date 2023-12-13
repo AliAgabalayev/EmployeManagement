@@ -1,8 +1,7 @@
 package com.employee.management.controller;
 
-import com.employee.management.dao.entity.Position;
-import com.employee.management.model.PositionRequest;
-import com.employee.management.model.PositionResponse;
+import com.employee.management.model.request.PositionRequest;
+import com.employee.management.model.response.PositionResponse;
 import com.employee.management.service.PositionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +33,7 @@ public class PositionController {
         return ResponseEntity.ok(positionResponse);
     }
 
-    @PostMapping("{id}")
+    @PutMapping("{id}")
     public ResponseEntity<PositionResponse> editPosition(@PathVariable Long id, @RequestBody PositionRequest positionRequest) {
         PositionResponse positionResponse = positionService.editPosition(id, positionRequest);
         return ResponseEntity.ok(positionResponse);

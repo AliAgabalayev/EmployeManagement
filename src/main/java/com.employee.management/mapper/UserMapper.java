@@ -1,8 +1,8 @@
 package com.employee.management.mapper;
 
 import com.employee.management.dao.entity.User;
-import com.employee.management.model.UserRequest;
-import com.employee.management.model.UserResponse;
+import com.employee.management.model.request.UserRequest;
+import com.employee.management.model.response.UserResponse;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 

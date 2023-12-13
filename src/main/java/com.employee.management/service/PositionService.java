@@ -1,8 +1,7 @@
 package com.employee.management.service;
 
-import com.employee.management.model.PositionDto;
-import com.employee.management.model.PositionRequest;
-import com.employee.management.model.PositionResponse;
+import com.employee.management.model.request.PositionRequest;
+import com.employee.management.model.response.PositionResponse;
 
 import java.util.List;
 

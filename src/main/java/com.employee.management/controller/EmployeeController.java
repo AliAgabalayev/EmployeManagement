@@ -1,8 +1,8 @@
 package com.employee.management.controller;
 
 
-import com.employee.management.model.EmployeeRequest;
-import com.employee.management.model.EmployeeResponse;
+import com.employee.management.model.request.EmployeeRequest;
+import com.employee.management.model.response.EmployeeResponse;
 import com.employee.management.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

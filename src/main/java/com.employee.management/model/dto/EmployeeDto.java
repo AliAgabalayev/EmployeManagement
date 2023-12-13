@@ -1,11 +1,6 @@
-package com.employee.management.model;
+package com.employee.management.model.dto;
 
-import com.employee.management.dao.entity.Department;
-import com.employee.management.dao.entity.Position;
-import com.employee.management.model.DepartmentDto;
-import com.employee.management.model.PositionDto;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

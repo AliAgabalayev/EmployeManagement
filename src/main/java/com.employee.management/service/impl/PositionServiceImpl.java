@@ -2,9 +2,9 @@ package com.employee.management.service.impl;
 
 import com.employee.management.dao.entity.Position;
 import com.employee.management.dao.repository.PositionRepository;
-import com.employee.management.model.PositionDto;
-import com.employee.management.model.PositionRequest;
-import com.employee.management.model.PositionResponse;
+import com.employee.management.model.dto.PositionDto;
+import com.employee.management.model.request.PositionRequest;
+import com.employee.management.model.response.PositionResponse;
 import com.employee.management.service.PositionService;
 import com.employee.management.mapper.PositionMapper;
 import com.employee.management.exception.PositionAlreadyExistsException;

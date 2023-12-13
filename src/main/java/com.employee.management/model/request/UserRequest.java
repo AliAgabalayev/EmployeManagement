@@ -1,6 +1,6 @@
-package com.employee.management.model;
+package com.employee.management.model.request;
 
-import com.employee.management.dao.entity.Role;
+import com.employee.management.model.dto.RoleDto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

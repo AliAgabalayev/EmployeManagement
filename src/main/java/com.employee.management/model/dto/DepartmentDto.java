@@ -1,24 +1,15 @@
-package com.employee.management.model;
+package com.employee.management.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Data
-@Builder
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
-
-public class UserResponse {
+public class DepartmentDto {
     private Long id;
     private String name;
-    private String surname;
-    private String email;
-    private String username;
-
-    
-
 }
